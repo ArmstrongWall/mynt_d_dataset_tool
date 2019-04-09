@@ -77,12 +77,12 @@ int main(int argc, char const* argv[]) {
               << std::endl;
           } else if (data.imu->flag == MYNTEYE_IMU_GYRO) {
             counter.IncrGyroCount();
-            std::cout << "[gyro] stamp: " << data.imu->timestamp
-              << ", x: " << data.imu->gyro[0]
-              << ", y: " << data.imu->gyro[1]
-              << ", z: " << data.imu->gyro[2]
-              << ", temp: " << data.imu->temperature
-              << std::endl;
+//            std::cout << "[gyro] stamp: " << data.imu->timestamp
+//              << ", x: " << data.imu->gyro[0]
+//              << ", y: " << data.imu->gyro[1]
+//              << ", z: " << data.imu->gyro[2]
+//              << ", temp: " << data.imu->temperature
+//              << std::endl;
           } else {
             std::cerr << "Imu type is unknown" << std::endl;
           }

@@ -39,7 +39,7 @@ int main(int argc, char const* argv[]) {
   OpenParams params(dev_info.index);
   {
     // Framerate: 10(default), [0,60], [0,30](STREAM_2560x720)
-    params.framerate = 30;
+    params.framerate = 60;
 
     // Device mode, default DEVICE_ALL
     //   DEVICE_COLOR: IMAGE_LEFT_COLOR ✓ IMAGE_RIGHT_COLOR ? IMAGE_DEPTH x
@@ -53,13 +53,14 @@ int main(int argc, char const* argv[]) {
 
     // Depth mode: colorful(default), gray, raw
     // params.depth_mode = DepthMode::DEPTH_GRAY;
+    params.depth_mode = MYNTEYE_NAMESPACE::DepthMode::DEPTH_RAW;
 
     // Stream mode: left color only
-    // params.stream_mode = StreamMode::STREAM_640x480;  // vga
+     //params.stream_mode = StreamMode::STREAM_640x480;  // vga
     // params.stream_mode = StreamMode::STREAM_1280x720;  // hd
     // Stream mode: left+right color
-    // params.stream_mode = StreamMode::STREAM_1280x480;  // vga
-    params.stream_mode = StreamMode::STREAM_2560x720;  // hd
+     params.stream_mode = StreamMode::STREAM_1280x480;  // vga
+    // params.stream_mode = StreamMode::STREAM_2560x720;  // hd
 
     // Auto-exposure: true(default), false
     // params.state_ae = false;
@@ -86,8 +87,10 @@ int main(int argc, char const* argv[]) {
     // Set image info callback
     cam.SetImgInfoCallback([&mutex](const std::shared_ptr<ImgInfo>& info) {
       std::lock_guard<std::mutex> _(mutex);
-      std::cout << "  [img_info] fid: " << info->frame_id
-          << ", stamp: " << info->timestamp
+      std::cout << " [img_] stamp: "
+                << std::setiosflags(std::ios::fixed) << std::setprecision(5)
+                <<  (double)info->timestamp / 100000.0
+                <<"  [img_info] fid: " << info->frame_id
           << ", expos: " << info->exposure_time << std::endl
           << std::flush;
     });
@@ -101,9 +104,9 @@ int main(int argc, char const* argv[]) {
       // Set stream data callback
       cam.SetStreamCallback(type, [&mutex](const StreamData& data) {
         std::lock_guard<std::mutex> _(mutex);
-        std::cout << "  [" << data.img->type() << "] fid: "
-            << data.img->frame_id() << std::endl
-            << std::flush;
+//        std::cout << "  [" << data.img->type() << "] fid: "
+//            << data.img->frame_id() << std::endl
+//            << std::flush;
       });
     }
 
@@ -111,14 +114,16 @@ int main(int argc, char const* argv[]) {
     cam.SetMotionCallback([&mutex](const MotionData& data) {
       std::lock_guard<std::mutex> _(mutex);
       if (data.imu->flag == MYNTEYE_IMU_ACCEL) {
-        std::cout << "[accel] stamp: " << data.imu->timestamp
-          << ", x: " << data.imu->accel[0]
-          << ", y: " << data.imu->accel[1]
-          << ", z: " << data.imu->accel[2]
-          << ", temp: " << data.imu->temperature
-          << std::endl;
+//        std::cout << "[accel] stamp: " << data.imu->timestamp
+//          << ", x: " << data.imu->accel[0]
+//          << ", y: " << data.imu->accel[1]
+//          << ", z: " << data.imu->accel[2]
+//          << ", temp: " << data.imu->temperature
+//          << std::endl;
       } else if (data.imu->flag == MYNTEYE_IMU_GYRO) {
-        std::cout << "[gyro] stamp: " << data.imu->timestamp
+        std::cout << "[gyro] stamp: "
+                << std::setiosflags(std::ios::fixed) << std::setprecision(5)
+                << (double)data.imu->timestamp / 100000.0
           << ", x: " << data.imu->gyro[0]
           << ", y: " << data.imu->gyro[1]
           << ", z: " << data.imu->gyro[2]
@@ -151,49 +156,49 @@ int main(int argc, char const* argv[]) {
   CVPainter painter;
   util::Counter counter;
   for (;;) {
-    counter.Update();
-
-    if (is_left_ok) {
-      auto left_color = cam.GetStreamData(ImageType::IMAGE_LEFT_COLOR);
-      if (left_color.img) {
-        cv::Mat left = left_color.img->To(ImageFormat::COLOR_BGR)->ToMat();
-        painter.DrawSize(left, CVPainter::TOP_LEFT);
-        painter.DrawStreamData(left, left_color, CVPainter::TOP_RIGHT);
-        painter.DrawInformation(left, util::to_string(counter.fps()),
-            CVPainter::BOTTOM_RIGHT);
-        cv::imshow("left color", left);
-      }
-    }
-
-    if (is_right_ok) {
-      auto right_color = cam.GetStreamData(ImageType::IMAGE_RIGHT_COLOR);
-      if (right_color.img) {
-        cv::Mat right = right_color.img->To(ImageFormat::COLOR_BGR)->ToMat();
-        painter.DrawSize(right, CVPainter::TOP_LEFT);
-        painter.DrawStreamData(right, right_color, CVPainter::TOP_RIGHT);
-        cv::imshow("right color", right);
-      }
-    }
-
-    if (is_depth_ok) {
-      auto image_depth = cam.GetStreamData(ImageType::IMAGE_DEPTH);
-      if (image_depth.img) {
-        cv::Mat depth;
-        if (params.depth_mode == DepthMode::DEPTH_COLORFUL) {
-          depth = image_depth.img->To(ImageFormat::DEPTH_BGR)->ToMat();
-        } else {
-          depth = image_depth.img->ToMat();
-        }
-        painter.DrawSize(depth, CVPainter::TOP_LEFT);
-        painter.DrawStreamData(depth, image_depth, CVPainter::TOP_RIGHT);
-        cv::imshow("depth", depth);
-      }
-    }
-
-    char key = static_cast<char>(cv::waitKey(1));
-    if (key == 27 || key == 'q' || key == 'Q') {  // ESC/Q
-      break;
-    }
+//    counter.Update();
+//
+//    if (is_left_ok) {
+//      auto left_color = cam.GetStreamData(ImageType::IMAGE_LEFT_COLOR);
+//      if (left_color.img) {
+//        cv::Mat left = left_color.img->To(ImageFormat::COLOR_BGR)->ToMat();
+//        painter.DrawSize(left, CVPainter::TOP_LEFT);
+//        painter.DrawStreamData(left, left_color, CVPainter::TOP_RIGHT);
+//        painter.DrawInformation(left, util::to_string(counter.fps()),
+//            CVPainter::BOTTOM_RIGHT);
+//        cv::imshow("left color", left);
+//      }
+//    }
+//
+//    if (is_right_ok) {
+//      auto right_color = cam.GetStreamData(ImageType::IMAGE_RIGHT_COLOR);
+//      if (right_color.img) {
+//        cv::Mat right = right_color.img->To(ImageFormat::COLOR_BGR)->ToMat();
+//        painter.DrawSize(right, CVPainter::TOP_LEFT);
+//        painter.DrawStreamData(right, right_color, CVPainter::TOP_RIGHT);
+//        cv::imshow("right color", right);
+//      }
+//    }
+//
+//    if (is_depth_ok) {
+//      auto image_depth = cam.GetStreamData(ImageType::IMAGE_DEPTH);
+//      if (image_depth.img) {
+//        cv::Mat depth;
+//        if (params.depth_mode == DepthMode::DEPTH_COLORFUL) {
+//          depth = image_depth.img->To(ImageFormat::DEPTH_BGR)->ToMat();
+//        } else {
+//          depth = image_depth.img->ToMat();
+//        }
+//        painter.DrawSize(depth, CVPainter::TOP_LEFT);
+//        painter.DrawStreamData(depth, image_depth, CVPainter::TOP_RIGHT);
+//        cv::imshow("depth", depth);
+//      }
+//    }
+//
+//    char key = static_cast<char>(cv::waitKey(1));
+//    if (key == 27 || key == 'q' || key == 'Q') {  // ESC/Q
+//      break;
+//    }
   }
 
   cam.Close();

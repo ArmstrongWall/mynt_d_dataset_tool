@@ -1,0 +1,7 @@
+/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/CMakeFiles/install/strip.dir
+/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/CMakeFiles/install/local.dir
+/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/CMakeFiles/mynteye_depth.dir
+/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/CMakeFiles/install.dir
+/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/CMakeFiles/list_install_components.dir

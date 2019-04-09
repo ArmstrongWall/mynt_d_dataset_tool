@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="mynteyed"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\cmake\templates\;CMake Files\cmake\templates\platforms\;CMake Files\cmake\templates\platforms\linux\;CMake Files\cmake-build-debug\;CMake Files\include\;CMake Files\include\mynteyed\;CMake Files\include\mynteyed\stubs\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\OpenCV\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mynteye_depth">
+				<Option output="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/_output/lib/libmynteye_depthd.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DLOG_TAG=MYNTEYE"/>
+					<Add option="-DWITH_OPENCV"/>
+					<Add option="-DWITH_OPENCV3"/>
+					<Add option="-DWITH_JPEG"/>
+					<Add option="-DMYNTEYE_EXPORTS"/>
+					<Add directory="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/include"/>
+					<Add directory="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/include"/>
+					<Add directory="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/include"/>
+					<Add directory="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 mynteye_depth"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mynteye_depth/fast">
+				<Option output="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/_output/lib/libmynteye_depthd.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DLOG_TAG=MYNTEYE"/>
+					<Add option="-DWITH_OPENCV"/>
+					<Add option="-DWITH_OPENCV3"/>
+					<Add option="-DWITH_JPEG"/>
+					<Add option="-DMYNTEYE_EXPORTS"/>
+					<Add directory="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/include"/>
+					<Add directory="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/include"/>
+					<Add directory="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/include"/>
+					<Add directory="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/local/include/opencv"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 mynteye_depth/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/camera.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/data/channels.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/data/channels.h">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/data/hid/hid_linux.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/convertor.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/convertor.h">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/data_caches.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/data_caches.h">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/device.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/device.h">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/device_info.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/image.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/linux/color_palette_generator.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/linux/color_palette_generator.h">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/linux/device_linux.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/open_params.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/stream_info.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/device/types.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/internal/camera_p.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/internal/camera_p.h">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/internal/image_utils.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/internal/image_utils.h">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/internal/motions.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/internal/motions.h">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/internal/streams.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/internal/streams.h">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/stubs/types_calib.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/types_data.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/util/rate.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/util/strings.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/src/mynteyed/utils.cc">
+			<Option target="mynteye_depth"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/mynteyed-config.cmake.in">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/Common.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/DetectCXX11.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/DetectJPEG.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/DetectOpenCV.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/FindeSPDI.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/IncludeGuard.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/Summary.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/TargetArch.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/templates/ocvinfo.sh.in">
+			<Option virtualFolder="CMake Files\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/templates/pkginfo.sh.in">
+			<Option virtualFolder="CMake Files\cmake\templates\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake/templates/platforms/linux/sdk.cfg.in">
+			<Option virtualFolder="CMake Files\cmake\templates\platforms\linux\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug/arch.c">
+			<Option virtualFolder="CMake Files\cmake-build-debug\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/include/mynteyed/stubs/global_config.h.in">
+			<Option virtualFolder="CMake Files\include\mynteyed\stubs\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/wzq/3rdparty/my-MYNT-EYE-D-SDK/../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,44 @@
+/home/wzq/Downloads/software/clion-2018.2.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/wzq/3rdparty/my-MYNT-EYE-D-SDK
+-- The C compiler identification is GNU 5.4.0
+-- The CXX compiler identification is GNU 5.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- HOST_ARCH: x86_64
+-- Using flag -std=c++11
+-- C_FLAGS: -Wall -O3
+-- CXX_FLAGS: -Wall -O3 -std=c++11
+-- Found components for eSPDI
+-- eSPDI_INCLUDE_DIRS: /home/wzq/3rdparty/my-MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/include
+-- eSPDI_LIBS: /home/wzq/3rdparty/my-MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/x64/libeSPDI.so
+-- Generating shared library mynteye_depth
+-- Copy eSPDI_LIBS to /home/wzq/3rdparty/my-MYNT-EYE-D-SDK/_output/lib/3rdparty
+--   Skip /home/wzq/3rdparty/my-MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/x64/libeSPDI.so
+--   Skip /home/wzq/3rdparty/my-MYNT-EYE-D-SDK/3rdparty/eSPDI/linux/x64/libeSPDI.so.3.0.24
+-- 
+-- Platform:
+--   HOST_OS: Linux
+--   HOST_NAME: Ubuntu
+--   HOST_ARCH: x86_64
+--   HOST_COMPILER: GNU
+--     COMPILER_VERSION: 5.4.0
+-- 
+-- OpenCV: YES
+--   OpenCV_VERSION: 3.2.0
+--   OpenCV_WORLD: NO
+-- 
+-- JPEG: YES
+--   JPEG_VERSION: 80
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/wzq/3rdparty/my-MYNT-EYE-D-SDK/cmake-build-debug

@@ -59,7 +59,8 @@ void Dataset::SaveMotionData(const MYNTEYE_NAMESPACE::MotionData &data) {
   auto seq = motion_count_;
 
   writer->ofs << seq << ", " << static_cast<int>(data.imu->flag) << ", "
-    << data.imu->timestamp << ", "<< data.imu->accel[0] << ", "
+          << std::setiosflags(std::ios::fixed) << std::setprecision(5)
+    << (double)data.imu->timestamp/100000.0 << ", "<< data.imu->accel[0] << ", "
     << data.imu->accel[1] << ", " << data.imu->accel[2] << ", "
     << data.imu->gyro[0] << ", " << data.imu->gyro[1] << ", "
     << data.imu->gyro[2] << ", " << data.imu->temperature << std::endl;
@@ -72,19 +73,43 @@ void Dataset::SaveStreamData(const ImageType &type,
   auto seq = stream_count_[type];
 
   if (data.img_info) {
-    writer->ofs << seq << ", " << data.img_info->frame_id << ", "
-      << data.img_info->timestamp << ", "
-      << data.img_info->exposure_time << std::endl;
+
+      if (data.img) {
+
+          if(type == ImageType::IMAGE_DEPTH) {
+              writer->ofs     << seq  << " rgb/"
+                              << seq << ".png "
+                              << seq << " depth/"
+                              << seq << ".png" << std::endl;
+          } else {
+              writer->ofs << seq << ", " << data.img_info->frame_id << ", "
+                          << std::setiosflags(std::ios::fixed) << std::setprecision(5)
+                          << (double)data.img_info->timestamp /100000.0 << ", "
+                          << data.img_info->exposure_time << std::endl;
+          }
+
+
+          std::stringstream ss;
+          ss << writer->outdir << MYNTEYE_OS_SEP << std::dec
+             << seq << ".png";
+
+
+          if(type == ImageType::IMAGE_DEPTH) {
+              cv::imwrite(ss.str(), data.img->To(ImageFormat::DEPTH_RAW)->ToMat());
+          } else if(type == ImageType::IMAGE_LEFT_COLOR){
+              cv::imwrite(ss.str(), data.img->To(ImageFormat::COLOR_BGR)->ToMat());
+          } else if(type == ImageType::IMAGE_RIGHT_COLOR){
+              cv::imwrite(ss.str(), data.img->To(ImageFormat::COLOR_BGR)->ToMat());
+          }
+      }
+
+
+
     ++stream_count_[type];
   }
-  /*
-  if (data.img) {
-    std::stringstream ss;
-    ss << writer->outdir << MYNTEYE_OS_SEP << std::dec
-       << std::setw(IMAGE_FILENAME_WIDTH) << std::setfill('0') << seq << ".png";
-    cv::imwrite(ss.str(), data.img->To(ImageFormat::COLOR_BGR)->ToMat());
-  }
-  */
+  /**/
+
+
 }
 
 Dataset::writer_t Dataset::GetMotionWriter() {
@@ -117,14 +142,25 @@ Dataset::writer_t Dataset::GetStreamWriter(const ImageType &type) {
       case ImageType::IMAGE_RIGHT_COLOR: {
         writer->outdir = outdir_ + MYNTEYE_OS_SEP "right";
       } break;
+        case ImageType::IMAGE_DEPTH: {
+            writer->outdir = outdir_ + MYNTEYE_OS_SEP "depth";
+        } break;
       default:
         std::cout << "Unsupported ImageType." << std::endl;
     }
-    writer->outfile = writer->outdir + MYNTEYE_OS_SEP "stream.txt";
+
+    if(type == ImageType::IMAGE_DEPTH) {
+      writer->outfile = writer->outdir + MYNTEYE_OS_SEP "../associate.txt";
+    } else {
+      writer->outfile = writer->outdir + MYNTEYE_OS_SEP "stream.txt";
+    }
 
     files::mkdir(writer->outdir);
     writer->ofs.open(writer->outfile, std::ofstream::out);
-    writer->ofs << "seq, frame_id, timestamp, exposure_time" << std::endl;
+      if(type != ImageType::IMAGE_DEPTH) {
+          writer->ofs << "seq, frame_id, timestamp, exposure_time" << std::endl;
+      }
+//    writer->ofs << "seq, frame_id, timestamp, exposure_time" << std::endl;
     writer->ofs << FULL_PRECISION;
 
     stream_writers_[type] = writer;

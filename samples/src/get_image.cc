@@ -25,6 +25,8 @@
 MYNTEYE_USE_NAMESPACE
 
 int main(int argc, char const* argv[]) {
+    char buffer[80];
+    int cnt=0;
   Camera cam;
   DeviceInfo dev_info;
   if (!util::select(cam, &dev_info)) {
@@ -51,14 +53,14 @@ int main(int argc, char const* argv[]) {
     // params.color_mode = ColorMode::COLOR_RECTIFIED;
 
     // Depth mode: colorful(default), gray, raw
-    // params.depth_mode = DepthMode::DEPTH_GRAY;
+    //params.depth_mode = DepthMode::DEPTH_GRAY;
 
     // Stream mode: left color only
-    // params.stream_mode = StreamMode::STREAM_640x480;  // vga
+//     params.stream_mode = StreamMode::STREAM_640x480;  // vga
     // params.stream_mode = StreamMode::STREAM_1280x720;  // hd
     // Stream mode: left+right color
-    // params.stream_mode = StreamMode::STREAM_1280x480;  // vga
-    params.stream_mode = StreamMode::STREAM_2560x720;  // hd
+     params.stream_mode = StreamMode::STREAM_1280x480;  // vga
+    // params.stream_mode = StreamMode::STREAM_2560x720;  // hd
 
     // Auto-exposure: true(default), false
     // params.state_ae = false;
@@ -77,7 +79,7 @@ int main(int argc, char const* argv[]) {
     // params.ir_depth_only = true;
 
     // Infrared intensity: 0(default), [0,10]
-    params.ir_intensity = 4;
+    params.ir_intensity = 0;
   }
 
   // Enable what process logics
@@ -114,11 +116,22 @@ int main(int argc, char const* argv[]) {
       auto left_color = cam.GetStreamData(ImageType::IMAGE_LEFT_COLOR);
       if (left_color.img) {
         cv::Mat left = left_color.img->To(ImageFormat::COLOR_BGR)->ToMat();
-        painter.DrawSize(left, CVPainter::TOP_LEFT);
-        painter.DrawStreamData(left, left_color, CVPainter::TOP_RIGHT);
-        painter.DrawInformation(left, util::to_string(counter.fps()),
-            CVPainter::BOTTOM_RIGHT);
+//        painter.DrawSize(left, CVPainter::TOP_LEFT);
+//        painter.DrawStreamData(left, left_color, CVPainter::TOP_RIGHT);
+//        painter.DrawInformation(left, util::to_string(counter.fps()),
+//            CVPainter::BOTTOM_RIGHT);
+
         cv::imshow("left color", left);
+
+          char key = static_cast<char>(cv::waitKey(30));
+          if (key == 's') {  // ESC/Q
+              sprintf(buffer,"%.2d",cnt);
+              std::string s = buffer;
+              cv::imwrite("calib/" + s + ".png", left);
+              cnt++;
+              printf("save img %d\n",cnt);
+          }
+
       }
     }
 
@@ -140,6 +153,7 @@ int main(int argc, char const* argv[]) {
           depth = image_depth.img->To(ImageFormat::DEPTH_BGR)->ToMat();
         } else {
           depth = image_depth.img->ToMat();
+          //std::cout << image_depth.img->data()[3];
         }
         painter.DrawSize(depth, CVPainter::TOP_LEFT);
         painter.DrawStreamData(depth, image_depth, CVPainter::TOP_RIGHT);
@@ -151,6 +165,8 @@ int main(int argc, char const* argv[]) {
     if (key == 27 || key == 'q' || key == 'Q') {  // ESC/Q
       break;
     }
+
+
   }
 
   cam.Close();
