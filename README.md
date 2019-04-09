@@ -1,3 +1,6 @@
+Johnny Wang 修改为可录制30Hz图像，200Hz的IMU数据
+命令：
+./tools/_output/bin/dataset/record
 # MYNT® EYE D SDK
 
 [![](https://img.shields.io/badge/MYNT%20EYE%20D%20SDK-v1.6.0-brightgreen.svg?style=flat)](https://github.com/slightech/MYNT-EYE-D-SDK)
